@@ -8,12 +8,11 @@ export default class Home extends React.Component {
 		this.state = {
 			files: []
 		}
+    this.onDrop = this.onDrop.bind(this);
 	}
 
   onDrop(files) {
-  	this.state = {
-        files: files
-    };
+  	this.setState({files: files});
   		console.log('Received files: ', files);
   }
 
