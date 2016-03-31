@@ -15,7 +15,6 @@ module.exports = (
     <Route handler={LoginRequired}>
       <Route handler={Master}>
         <DefaultRoute handler={Home} name="Home"/>
-        <Route handler={Speakers} name="Speakers" />
       </Route>
     </Route>
   </Route>
