@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropzone from 'react-dropzone-es6';
+import request from 'superagent'
 
 export default class Home extends React.Component {
   
@@ -14,6 +15,13 @@ export default class Home extends React.Component {
   onDrop(files) {
   	this.setState({files: files});
   		console.log('Received files: ', files);
+      var req = request.post('http://localhost:8083/image-uploader/upload');
+      files.forEach((file)=> {
+            req.attach('file', file);
+        });
+        req.end(function(err, res) {
+          console.log('err', err,'res',res);
+        });
   }
 
   render () {
